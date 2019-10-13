@@ -1,16 +1,12 @@
 import React from 'react';
+// import React, { Component } from 'react';
+// import { Link, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-        <p>
-          itssamjo coming soon...
-        </p>
-        
-      </header>
+      <h1 className="App-title">itssamjo</h1>
     </div>
   );
 }
