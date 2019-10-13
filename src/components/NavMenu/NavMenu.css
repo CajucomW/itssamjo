@@ -1,0 +1,6 @@
+.NavMenuStyle {
+    font-family: 'Didact Gothic', sans-serif;
+    background-color: #D9C8C2;
+    display: flex;
+    justify-content: space-around;
+}

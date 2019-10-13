@@ -10,11 +10,15 @@
   color: white;
   background-color: #D9C8C2;
   width: fit-content;
-  margin-left: 5vw;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -8vh;
   font-size: 55px;
-  font-family: 'Pacifico', cursive, sans-serif;
+  font-family: 'Pacifico', cursive, sans-serif
+}
+
+.App-mainContent {
+  background-color: #D9C8C2;
 }
 
 .App-link {
