@@ -2,67 +2,35 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { API_URL } from "../../constants";
 
-class BlogsWrite extends Component {
+class BlogsWrite extends React.Component {
     state = {
         title: '',
         text: '',
     };
 
     onChangeTitle = (ev) => {
-        console.log("change title");
         this.setState({
-            [ev.target.title]: ev.target.value
+            title: ev.target.value,
         });
     }
-
     onChangeText = (ev) => {
-        console.log('change text');
         this.setState({
-            [ev.target.text]: ev.target.value
+            text: ev.target.value,
         });
     }
 
-    // onChangeTitle = (ev) => {
-    //     this.setState({
-    //         title: ev.target.value,
-    //     });
-    // }
-    // onChangeText = (ev) => {
-    //     this.setState({
-    //         text: ev.target.value,
-    //     });
+    // componentDidMount() {
+    //     this.resetState();
     // }
 
-    // submit = () => {
-    //     if (this.state.text !== ''){
-    //         const formData = {
-    //             title: this.setState.title,
-    //             text: this.setState.text,
-    //         };
+    fetchBlogs = () => {
+        axios.get(API_URL)
+        .then(response => this.setState({ blogs: response.data }));
+    };
 
-    //         fetch('http://localhost:8000/api/bloglist', {
-    //             method: 'POST',
-    //             // body: JSON.stringify(formData),
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log("did data come back?", data);
-    //             this.props.history.push('/');
-    //         });
-    //     }
-    // }
-
-    // submit = () => {
-    //     const formData = {
-    //         title: this.state.title,
-    //         text: this.state.text,
-    //     };
-
-    //     fetch('http://localhost:8000/api/bloglist', {
-    //         method: 'POST',
-    //     }).then(response => response.json())
-    //     .then(data => {});
-    // }
+    resetState() {
+        this.fetchBlogs();
+    };
 
     createBlog = (ev) => {
         ev.preventDefault();
@@ -73,7 +41,6 @@ class BlogsWrite extends Component {
     }
 
     render() {
-        console.log("is it rendering");
         return (
             <form onSubmit={this.createBlog}>
                 <h2>Title</h2>

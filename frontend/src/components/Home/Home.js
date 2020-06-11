@@ -12,12 +12,9 @@ class Home extends Component {
         this.resetState();
     }
 
-    getBlogs = () => {
-        console.log("Fetching blogs");
-        console.log(API_URL);
-        axios.get(API_URL).then(response => this.setState({
-            blogs: this.setState.blogs
-        }));
+    fetchBlogs = () => {
+        axios.get(API_URL)
+        .then(res => this.setState({ blogs: res.data }));
     };
 
     // getBlogs() {
@@ -33,7 +30,7 @@ class Home extends Component {
     // }
 
     resetState() {
-        this.getBlogs();
+        this.fetchBlogs();
     };
 
     render () {
