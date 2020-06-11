@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './NavMenu.css';
+import { Link, Switch, Route } from 'react-router-dom';
+import Home from '../Home/Home.js';
+import BlogsWrite from '../BlogsWrite/BlogsWrite.js';
 
 class NavMenu extends Component {
     render() {
         return (
-            <div className='NavMenuStyle'>
-                {/* TODO: turn these into links */}
-                {/* TODO: align w/ main title */}
-                <Link to="/">About</Link>
-                <Link to="/blogs/">Blogs</Link>
-                <p>instagram</p>
-                <p>twitter</p>
-                <p>facebook</p>
-                <p>youtube</p>
+            <div>
+                <Link to="/">Home</Link>
+                <Link to="/write_blogs/">Blogs</Link>
             </div>
         )
     }

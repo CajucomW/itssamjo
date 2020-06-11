@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-// import { Col, Container, Row } from "reactstrap";
 import BlogList from "../BlogList/BlogList.js";
-import axios from "axios";
-import { API_URL } from "../../constants";
+// import axios from "axios";
+// import { API_URL } from "../../constants";
 
 class Home extends Component {
     state = {
