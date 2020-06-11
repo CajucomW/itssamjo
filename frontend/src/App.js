@@ -13,11 +13,15 @@ import {
 // import LandingPage from './components/LandingPage/LandingPage.js';
 // import Blogs from './components/Blogs/Blogs.js';
 import Header from './components/Header/Header.js';
+import Home from './components/Home/Home.js';
 
 class App extends Component {
   render() {
     return (
-      <Header />
+      <div>
+        <Header />
+        <Home />
+      </div>
       // <div className="App">
 
       //   <div className="App-NavMenu">
