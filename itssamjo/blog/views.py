@@ -8,7 +8,7 @@ from .serializers import *
 @api_view(['GET', 'POST'])
 def blog_list(request):
     if request.method == 'GET':
-        data = BlogModel.objects.all()
+        data = BlogModel.objects.order_by('-created')
         serializer = BlogModelSerializer(
             data, 
             context={'request': request}, 

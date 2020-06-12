@@ -1,4 +1,5 @@
 import React, { Component, PropsTypes } from 'react';
+import { withRouter } from 'react-router';
 import axios from "axios";
 import { API_URL } from "../../constants";
 
@@ -36,8 +37,9 @@ class BlogsWrite extends React.Component {
         ev.preventDefault();
         axios.post(API_URL, this.state)
         .then(() => {
-            this.props.resetState();
-        })
+            this.setState();
+            this.props.history.push('');
+        });
     }
 
     render() {
@@ -61,4 +63,4 @@ class BlogsWrite extends React.Component {
     }
 }
 
-export default BlogsWrite;
+export default withRouter(BlogsWrite);
