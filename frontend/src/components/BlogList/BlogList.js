@@ -6,9 +6,15 @@ class BlogList extends Component {
         return (
             blogs.map(blog => (
             <div>
-                {blog.title}
+                <h3><strong>{blog.title}</strong></h3>
                 <br />
+                <hr />
                 {blog.text}
+                <br />
+                <br />
+                <small>{blog.created}</small>
+                <br />
+                <hr />
             </div>
             ))
         );

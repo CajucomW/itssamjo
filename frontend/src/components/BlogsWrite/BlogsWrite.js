@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropsTypes } from 'react';
 import axios from "axios";
 import { API_URL } from "../../constants";
 
@@ -26,11 +26,11 @@ class BlogsWrite extends React.Component {
     fetchBlogs = () => {
         axios.get(API_URL)
         .then(response => this.setState({ blogs: response.data }));
-    };
+    }
 
     resetState() {
         this.fetchBlogs();
-    };
+    }
 
     createBlog = (ev) => {
         ev.preventDefault();
@@ -53,7 +53,6 @@ class BlogsWrite extends React.Component {
                     placeholder="Write blog here."
                     onChange={this.onChangeText} />
                 <br />
-                <p>This where blogs are written</p>
                 <button>
                     Post
                 </button>
