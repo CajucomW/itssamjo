@@ -29,7 +29,7 @@ class BlogsWrite extends React.Component {
         .then(response => this.setState({ blogs: response.data }));
     }
 
-    resetState() {
+    resetState = () => {
         this.fetchBlogs();
     }
 
