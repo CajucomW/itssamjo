@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +10,7 @@ import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import BlogsWrite from './components/BlogsWrite/BlogsWrite.js';
 import NotFound from './components/NotFound/NotFound.js';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.js';
 
 class App extends Component {
 	render() {
@@ -19,7 +20,7 @@ class App extends Component {
 				<div>
 					<Switch>
 						<Route exact path='/' component={Home} />
-						<Route exact path='/write_blogs/' component={BlogsWrite} />
+						<PrivateRoute exact path='/write_blogs/' component={BlogsWrite} auth={this.props.auth} />
 						<Route component={NotFound} />
 					</Switch>
 				</div>

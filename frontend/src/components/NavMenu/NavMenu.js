@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Home from '../Home/Home.js';
-import BlogsWrite from '../BlogsWrite/BlogsWrite.js';
 
 class NavMenu extends Component {
     render() {
