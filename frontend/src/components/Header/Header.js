@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link, Switch, Route } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu.js';
 
 class Header extends Component {

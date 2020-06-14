@@ -7,6 +7,7 @@ class NavMenu extends Component {
             <div>
                 <Link to="/">Home</Link>
                 <Link to="/write_blogs/">Blogs</Link>
+                <Link to="/login/">Login</Link>
             </div>
         )
     }
