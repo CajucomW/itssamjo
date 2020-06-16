@@ -8,5 +8,5 @@ class BlogModel(models.Model):
     # image = models.FileField(upload_to="blogimages/", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
-def __str__(self):
-    return self.title + ' said ' + self.text
+# def __str__(self):
+#     return self.title + ' said ' + self.text
