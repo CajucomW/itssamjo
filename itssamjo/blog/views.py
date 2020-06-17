@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status, generics
 from .models import BlogModel
-from .serializers import *
+from .serializers import BlogModelSerializer
 
 ## Going to try authentication using Django
 # from django.contrib.auth.models import User
@@ -72,6 +72,6 @@ from .serializers import *
 #-------------------------------------------------------------------
 
 # This is what is see on 'api/blog/
-class BlogModel(generics.ListCreateAPIView):
+class BlogModelListCreate(generics.ListCreateAPIView):
     queryset = BlogModel.objects.order_by('-created')
     serializer_class = BlogModelSerializer

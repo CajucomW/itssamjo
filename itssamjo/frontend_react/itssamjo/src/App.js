@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { render } from "react-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: [],
+      		loaded: false,
+      		placeholder: "Loading"
+    	};
+  }
+  
+	componentDidMount() {
+		console.log("==== Did Component Mount? ====")
+		fetch("api/blog")
+		.then(response => {
+			if (response.status > 400) {
+				return this.setState(() => {
+					return { placeholder: "Something went wrong!" };
+				});
+			}
+			return response.json();
+		})
+		.then(data => {
+			this.setState(() => {
+				return {
+					data,
+					loaded: true
+				};
+			});
+		});
+		console.log('=== Data ===')
+		console.log(data)
+  }
+  
+  render() {
+	  return (
+		<ul>
+		  {this.state.data.map(contact => {
+			return (
+			  <li key={contact.id}>
+				  {contact.name} - {contact.email}
+			  </li>
+			  );
+			})}
+		</ul>
+	  );
+	}
 }
 
 export default App;
+
+// const container = document.getElementById("app");
+// render(<App />, container);

@@ -2,5 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('api/blog/', views.BlogModel.as_view() ),
+    # this views "class" came from
+    # itssamjo/itssamjo/blog/views.py
+    path('api/blog/', views.BlogModelListCreate.as_view() ),
 ]
