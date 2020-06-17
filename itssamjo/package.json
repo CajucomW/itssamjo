@@ -18,7 +18,7 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "dev": "webpack --mode development ./reactfrontend/src/index.js --output ./reactfrontend/static/frontend/main.js",
+    "dev": "webpack --mode development --watch ./reactfrontend/src/index.js --output ./reactfrontend/static/frontend/main.js",
     "build": "webpack --mode production ./reactfrontend/src/index.js --output ./reactfrontend/static/frontend/main.js"
   },
   "keywords": [],
