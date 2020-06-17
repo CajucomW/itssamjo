@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import UnicodeUsernameValidator
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework import status
+from rest_framework import status, generics
 from .models import BlogModel
 from .serializers import *
 
@@ -30,15 +30,15 @@ from .serializers import *
 #         ## Redirect to 'invalid' message
 
 # # -------------------WORKING CODE-----------------------#
-@api_view(['GET', 'POST'])
-def blog_list(request):
-    # if request.method == 'GET':
-    data = BlogModel.objects.order_by('-created')
-    serializer = BlogModelSerializer(
-        data, 
-        context={'request': request}, 
-        many=True)
-    return Response(serializer.data)
+# @api_view(['GET', 'POST'])
+# def blog_list(request):
+#     # if request.method == 'GET':
+#     data = BlogModel.objects.order_by('-created')
+#     serializer = BlogModelSerializer(
+#         data, 
+#         context={'request': request}, 
+#         many=True)
+#     return Response(serializer.data)
 
     # elif request.method == 'POST':
     #     serializer = BlogModelSerializer(data=request.data)
@@ -70,3 +70,8 @@ def blog_list(request):
 #         blog.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
 #-------------------------------------------------------------------
+
+# This is what is see on 'api/blog/
+class BlogModel(generics.ListCreateAPIView):
+    queryset = BlogModel.objects.order_by('-created')
+    serializer_class = BlogModelSerializer
