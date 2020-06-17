@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'blog.apps.BlogConfig',
     'rest_framework',
+    'reactfrontend',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

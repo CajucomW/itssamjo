@@ -4,5 +4,5 @@ from . import views
 urlpatterns = [
     # this views "class" came from
     # itssamjo/itssamjo/blog/views.py
-    path('api/blog/', views.BlogModelListCreate.as_view() ),
+    path('api/blog/', views.blog_list),
 ]
