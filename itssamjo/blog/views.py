@@ -30,15 +30,15 @@ from .serializers import BlogModelSerializer
 #         ## Redirect to 'invalid' message
 
 # # -------------------WORKING CODE-----------------------#
-# @api_view(['GET', 'POST'])
-# def blog_list(request):
-#     # if request.method == 'GET':
-#     data = BlogModel.objects.order_by('-created')
-#     serializer = BlogModelSerializer(
-#         data, 
-#         context={'request': request}, 
-#         many=True)
-#     return Response(serializer.data)
+@api_view(['GET', 'POST'])
+def blog_list(request):
+    # if request.method == 'GET':
+    data = BlogModel.objects.order_by('-created')
+    serializer = BlogModelSerializer(
+        data, 
+        context={'request': request}, 
+        many=True)
+    return Response(serializer.data)
 
     # elif request.method == 'POST':
     #     serializer = BlogModelSerializer(data=request.data)
@@ -72,6 +72,6 @@ from .serializers import BlogModelSerializer
 #-------------------------------------------------------------------
 
 # This is what is see on 'api/blog/
-class BlogModelListCreate(generics.ListCreateAPIView):
-    queryset = BlogModel.objects.order_by('-created')
-    serializer_class = BlogModelSerializer
+# class BlogModelListCreate(generics.ListCreateAPIView):
+#     queryset = BlogModel.objects.order_by('-created')
+#     serializer_class = BlogModelSerializer
