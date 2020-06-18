@@ -8,14 +8,15 @@ class App extends Component {
     render() {
         console.log('=====App=====');
         return (
-            <Fragment>
+            <div>
                 <Header />
                 <div>
                     <NavMenu />
                 </div>
-            </Fragment>
+            </div>
         );
     }
 }
 
+export default App;
 ReactDOM.render(<App />, document.getElementById('app'));
