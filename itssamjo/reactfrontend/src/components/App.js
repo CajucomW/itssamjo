@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
+
 import Header from "./Header.js";
+import NavMenu from "./NavMenu.js";
 
 class App extends Component {
     render() {
-        return(
-            <Header />
+        console.log('=====App=====');
+        return (
+            <Fragment>
+                <Header />
+                <div>
+                    <NavMenu />
+                </div>
+            </Fragment>
         );
     }
 }
-
-export default App;
 
 ReactDOM.render(<App />, document.getElementById('app'));
