@@ -8,8 +8,8 @@ Using React on the front end, while using Django framework on the back end.
 
 ### Progress...
 
-06142020
-Wrote the Login form.
+06182020
+Restructured app to have REACT front end as a Django App. So far, so good.
 
 
 ### TODO:
