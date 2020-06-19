@@ -22,6 +22,7 @@ export default function NavMenu() {
         <div>
             <Link to='/'>Home</Link>
             <Link to='/blog'>Blog</Link>
+            <Link to='/write-blog'>Write</Link>
         </div>
     )
 }

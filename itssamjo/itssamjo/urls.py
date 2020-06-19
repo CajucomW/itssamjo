@@ -7,6 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('reactfrontend.urls')),
     path('', include('blog.urls')),
-    path('api/bloglist', views.blog_list),
+    path('api/blog', views.blog_list),
     # path('api/blog/<int:pk>', views.blog_detail)
 ]

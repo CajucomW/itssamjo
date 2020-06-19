@@ -9,6 +9,7 @@ import {
 import Header from "./Header.js";
 import Home from './Home.js';
 import Blog from "./Blog.js";
+import WriteBlog from './WriteBlog.js';
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route exact path='/blog' component={Blog} />
+                        <Route exact path='/write-blog' component={WriteBlog} />
                     </Switch>
                 </div>
             </Router>

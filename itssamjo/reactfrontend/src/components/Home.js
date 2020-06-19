@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Blog from './Blog.js';
 import axios from 'axios';
 
-export const API_URL = "http://localhost:8000/api/bloglist";
-
 export class Home extends Component {
     state = {
         blogs: []
@@ -15,7 +13,7 @@ export class Home extends Component {
 
     fetchBlogs = () => {
         console.log('===fetching blogs===');
-        axios.get("http://localhost:8000/api/bloglist")
+        axios.get("http://localhost:8000/api/blog")
         .then(response => this.setState({ blogs: response.data }));
     };
 
