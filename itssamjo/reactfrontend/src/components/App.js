@@ -1,20 +1,28 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
 
 import Header from "./Header.js";
+import Home from './Home.js';
 import NavMenu from "./NavMenu.js";
 
 class App extends Component {
     render() {
         console.log('=====App=====');
         return (
-            <Fragment>
+            <Router>
                 <Header />
-                <hr />
                 <div>
-                    <NavMenu />
+                    <Switch>
+                        <Route exact path='/home' component={Home} />
+                    </Switch>
                 </div>
-            </Fragment>
+                <hr />
+            </Router>
         );
     }
 }
