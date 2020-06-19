@@ -21,6 +21,7 @@ class WriteBlog extends React.Component {
     };
 
     fetchBlogs = () => {
+        console.log('===fetching from POST===');
         axios.get("http://localhost:8000/api/blog")
         .then(response => this.setState({ blogs: response.data }));
     };
@@ -29,8 +30,8 @@ class WriteBlog extends React.Component {
         ev.preventDefault();
         axios.post("http://localhost:8000/api/blog", this.state)
         .then(() => {
-            this.props.setState();
-            this.props.history.push('/');
+            this.setState();
+            this.props.history.push('');
         });
     };
 

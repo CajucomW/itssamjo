@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// TODO: Have a search function and post single entries
+
 export class Blog extends Component {
     render() {
         console.log('=====Blog=====');
