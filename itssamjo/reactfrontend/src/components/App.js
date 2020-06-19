@@ -8,12 +8,13 @@ class App extends Component {
     render() {
         console.log('=====App=====');
         return (
-            <div>
+            <Fragment>
                 <Header />
+                <hr />
                 <div>
                     <NavMenu />
                 </div>
-            </div>
+            </Fragment>
         );
     }
 }

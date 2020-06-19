@@ -5,9 +5,7 @@ export class Home extends Component {
         console.log("=====Home=====");
         return (
             <div>
-                <h2>Spammy's Blog Page</h2>
-                <p>She doesn't know I'm working on this...</p>
-                <br />
+                <p>Home Link</p>
             </div>
         );
     }
