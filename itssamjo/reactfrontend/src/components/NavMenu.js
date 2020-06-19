@@ -20,7 +20,8 @@ import { Link } from 'react-router-dom';
 export default function NavMenu() {
     return(
         <div>
-            <Link to='/home'>Home</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/blog'>Blog</Link>
         </div>
     )
 }

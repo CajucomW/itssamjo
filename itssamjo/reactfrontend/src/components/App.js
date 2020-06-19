@@ -8,7 +8,7 @@ import {
 
 import Header from "./Header.js";
 import Home from './Home.js';
-import NavMenu from "./NavMenu.js";
+import Blog from "./Blog.js";
 
 class App extends Component {
     render() {
@@ -18,10 +18,10 @@ class App extends Component {
                 <Header />
                 <div>
                     <Switch>
-                        <Route exact path='/home' component={Home} />
+                        <Route exact path='/' component={Home} />
+                        <Route exact path='/blog' component={Blog} />
                     </Switch>
                 </div>
-                <hr />
             </Router>
         );
     }
