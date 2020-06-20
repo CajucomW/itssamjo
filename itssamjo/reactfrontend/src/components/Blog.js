@@ -1,21 +1,54 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getBlog } from '../actions/blogaction.js';
 
 // TODO: Have a search function and post single entries
 
 export class Blog extends Component {
+    static PropTypes = {
+        blog: PropTypes.array.isRequired
+    }
+
+    componentDidMount() {
+        this.props.getBlog();
+    }
+
     render() {
         console.log('=====Blog=====');
-        const blogs = this.props.blogs;
         return (
-            blogs.map(blog => (
-                <div>
-                    <p>{blog.title}</p>
-                    <p>{blog.text}</p>
-                    <p>{blog.created}</p>
-                </div>
-            ))
+            <Fragment>
+                <p>Blogs</p>
+                <div>{this.props.blog.map((blog) => (
+                    <div key={blog.pk}>
+                        <p>{blog.title}</p>
+                        <p>{blog.text}</p>
+                        <p>
+                            <button>
+                                Delete
+                            </button>
+                        </p>
+                    </div>
+                ))}
+            </div>
+            </Fragment>
         );
+        //=========Pre REDUX Code=========
+        // const blogs = this.props.blogs;
+        // return (
+        //     blogs.map(blog => (
+        //         <div>
+        //             <p>{blog.title}</p>
+        //             <p>{blog.text}</p>
+        //             <p>{blog.created}</p>
+        //         </div>
+        //     ))
+        // );
     }
 }
 
-export default Blog;
+const mapStateToProps = state => ({
+    blog: state.blog.blog
+});
+
+export default connect(mapStateToProps, { getBlog })(Blog);

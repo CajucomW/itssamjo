@@ -30,6 +30,7 @@ class WriteBlog extends React.Component {
         ev.preventDefault();
         axios.post("http://localhost:8000/api/blog", this.state)
         .then(() => {
+            console.log('===Create Blog?===');
             this.setState();
             this.props.history.push('');
         });
