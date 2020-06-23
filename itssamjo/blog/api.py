@@ -4,7 +4,7 @@ from .serializers import BlogModelSerializer
 
 # BlogModel Viewset
 class BlogViewSet(viewsets.ModelViewSet):
-    queryset = BlogModel.objects.all()
+    queryset = BlogModel.objects.order_by('-created')
     permission_classes = [
         permissions.AllowAny
     ]
