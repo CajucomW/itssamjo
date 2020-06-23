@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Blog from './Blog.js';
-import { getBlog } from '../actions/blogaction.js';
-import axios from 'axios';
+// import { getBlog } from '../actions/blogaction.js';
+// import axios from 'axios';
 
 export class Home extends Component {
     // state = {

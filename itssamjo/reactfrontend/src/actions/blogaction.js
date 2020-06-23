@@ -5,7 +5,7 @@ import { GET_BLOG, DELETE_BLOG } from './types';
 export const getBlog = () => dispatch => {
     axios.get('/api/blog')
     .then(response => {
-        console.log('===Get Blog===');
+        console.log('===Get Blog Action===');
         dispatch({
             type: GET_BLOG,
             payload: response.data
@@ -14,13 +14,13 @@ export const getBlog = () => dispatch => {
 };
 
 // DELETE BLOGS
-export const deleteBlog = (pk) => dispatch => {
-    axios.delete(`/api/blog/${pk}/`)
-    .then(response => {
-        console.log('===Delete Blog===');
+export const deleteBlog = (id) => dispatch => {
+    axios.delete(`/api/blog/${id}/`)
+    .then((response) => {
+        console.log('===Delete Blog Action===');
         dispatch({
             type: DELETE_BLOG,
-            payload: pk
+            payload: id,
         });
-    }).catch(err => console.log(err));
+    }).catch((err) => console.log(err, "===What's Happening Here?==="));
 };

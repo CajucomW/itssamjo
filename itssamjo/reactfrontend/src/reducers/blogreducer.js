@@ -9,13 +9,13 @@ export default function(state = initialState, action) {
         case GET_BLOG:
             return {
                 ...state,
-                blog: action.payload
+                blog: action.payload,
             };
         case DELETE_BLOG:
             return {
                 ...state,
-                blog: state.blog.filter(blog => 
-                blog.pk !== action.payload)
+                blog: state.blog.filter((blog) => 
+                blog.id !== action.payload),
             };
         default:
             return state;

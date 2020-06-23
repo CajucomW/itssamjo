@@ -1,61 +1,71 @@
-import React from 'react';
-import { withRouter } from 'react-router';
-import axios from 'axios';
+import React , { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addBlog } from '../actions/blogaction.js';
+// import { withRouter } from 'react-router';
+// import axios from 'axios';
 
-class WriteBlog extends React.Component {
+export class WriteBlog extends Component {
     state = {
         title: '',
         text: '',
     };
 
-    onChangeTitle = (ev) => {
-        this.setState({
-            title: ev.target.value,
-        });
+    static propTypes = {
+        addBlog: PropTypes.func.isRequired,
     };
 
-    onChangeText = (ev) => {
-        this.setState({
-            text: ev.target.value,
-        });
-    };
+    onChange = (ev) => 
+        this.setState(
+            {
+                [ev.target.name]: ev.target.value
+            }
+        );
 
-    fetchBlogs = () => {
-        console.log('===fetching from POST===');
-        axios.get("http://localhost:8000/api/blog")
-        .then(response => this.setState({ blogs: response.data }));
-    };
-
-    createBlog = (ev) => {
+    onSubmit = (ev) => {
         ev.preventDefault();
-        axios.post("http://localhost:8000/api/blog", this.state)
-        .then(() => {
-            console.log('===Create Blog?===');
-            this.setState();
-            this.props.history.push('');
+        const { title, text };
+        const blog = { title, text };
+        this.props.addBlog(blog);
+        this.setState({
+            title: '',
+            text: '',
         });
-    };
+    }
+
 
     render() {
         console.log('===Write Blog===');
+        const { title, text } = this.state;
         return (
-            <form onSubmit={this.createBlog}>
-                <p>Title</p>
-                <input
-                    placeholder="Title"
-                    onChange={this.onChangeTitle} />
-                <br />
-                <p>Text</p>
-                <textarea
-                    placeholder="Write Here!"
-                    onChange={this.onChangeText} />
-                <br />
-                <button>
-                    Post!
-                </button>
-            </form>
+            <div>
+                <p>Add Blog</p>
+                <form onSubmit={this.onSubmit}>
+                    <div>
+                        <label>Title</label>
+                        <input
+                            type="text"
+                            onChange={this.onChange}
+                            name="title"
+                            value={title}
+                            />
+                    </div>
+                    <div>
+                        <label>Text</label>
+                        <input
+                            type="textarea"
+                            onChange={this.onChange}
+                            name="text"
+                            value={text}
+                            />
+                    </div>
+                    <div>
+                        <button type="submit">Post!</button>
+                    </div>
+                </form>
+            </div>
         );
     }
 }
 
-export default withRouter(WriteBlog);
+export default connect(null, { addBlog })(WriteBlog);

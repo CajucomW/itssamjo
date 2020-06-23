@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getBlog, deleteBlog } from '../actions/blogaction.js';
+import { getBlog, deleteBlog, addBlog } from '../actions/blogaction.js';
 
-// TODO: Have a search function and post single entries
 
 export class Blog extends Component {
-    static PropTypes = {
-        blog: PropTypes.array.isRequired
-    }
+    static propTypes = {
+        blog: PropTypes.array.isRequired,
+        getBlog: PropTypes.func.isRequired,
+        deleteBlog: PropTypes.func.isRequired
+    };
 
     componentDidMount() {
         this.props.getBlog();
@@ -20,16 +21,18 @@ export class Blog extends Component {
             <Fragment>
                 <p>Blogs</p>
                 <div>{this.props.blog.map((blog) => (
-                    <div key={blog.pk}>
+                    // <div key={blog.id}>
+                    <div>
                         <p>{blog.title}</p>
                         <p>{blog.text}</p>
                         <p>{blog.created}</p>
+                        <p>{blog.id}</p>
                         <p>
                             <button
                                 onClick={this.props.deleteBlog.bind
-                                (this, blog.pk)}
+                                (this, blog.id)}
                             >
-                                {' '}
+                                {" "}
                                 Delete
                             </button>
                         </p>
