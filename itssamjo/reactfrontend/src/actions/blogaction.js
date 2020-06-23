@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_BLOG, DELETE_BLOG } from './types';
+import { GET_BLOG, DELETE_BLOG, ADD_BLOG } from './types';
 
 // GET BLOGS
 export const getBlog = () => dispatch => {
@@ -23,4 +23,16 @@ export const deleteBlog = (id) => dispatch => {
             payload: id,
         });
     }).catch((err) => console.log(err, "===What's Happening Here?==="));
+};
+
+// ADD BLOGS
+export const addBlog = (blog) => dispatch => {
+    axios.post('/api/blog', blog)
+    .then(response => {
+        console.log('===Get Blog Action===');
+        dispatch({
+            type: ADD_BLOG,
+            payload: response.data
+        });
+    }).catch(err => console.log(err));
 };

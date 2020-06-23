@@ -24,7 +24,7 @@ export class WriteBlog extends Component {
 
     onSubmit = (ev) => {
         ev.preventDefault();
-        const { title, text };
+        const { title, text } = this.state;
         const blog = { title, text };
         this.props.addBlog(blog);
         this.setState({
