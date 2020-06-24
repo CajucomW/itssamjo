@@ -37,7 +37,7 @@ export class WriteBlog extends Component {
         const { title, text } = this.state;
         return (
             <div>
-                <p>Add Blog</p>
+                <h1>Add Blog</h1>
                 <form onSubmit={this.onSubmit}>
                     <div>
                         <label>Title</label>
@@ -46,15 +46,18 @@ export class WriteBlog extends Component {
                             onChange={this.onChange}
                             name="title"
                             value={title}
+                            placeholder="Enter Title Here"
                             />
                     </div>
+                    <br />
                     <div>
                         <label>Text</label>
-                        <input
+                        <textarea
                             type="textarea"
                             onChange={this.onChange}
                             name="text"
                             value={text}
+                            placeholder="Enter Text Here"
                             />
                     </div>
                     <div>

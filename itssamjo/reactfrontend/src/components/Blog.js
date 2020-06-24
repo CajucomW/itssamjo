@@ -19,7 +19,7 @@ export class Blog extends Component {
         console.log('=====Blog=====');
         return (
             <Fragment>
-                <p>Blogs</p>
+                <h1>Blogs</h1>
                 <div>{this.props.blog.map((blog) => (
                     // <div >
                     <div key={blog.id}>
