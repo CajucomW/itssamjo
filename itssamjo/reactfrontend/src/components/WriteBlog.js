@@ -2,8 +2,6 @@ import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addBlog } from '../actions/blogaction.js';
-// import { withRouter } from 'react-router';
-// import axios from 'axios';
 
 export class WriteBlog extends Component {
     state = {

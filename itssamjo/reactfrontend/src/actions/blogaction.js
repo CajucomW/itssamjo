@@ -3,7 +3,7 @@ import { GET_BLOG, DELETE_BLOG, ADD_BLOG } from './types';
 
 // GET BLOGS
 export const getBlog = () => dispatch => {
-    axios.get('/api/blog')
+    axios.get('/api/blog/')
     .then(response => {
         console.log('===Get Blog Action===');
         dispatch({
@@ -22,12 +22,12 @@ export const deleteBlog = (id) => dispatch => {
             type: DELETE_BLOG,
             payload: id,
         });
-    }).catch((err) => console.log(err, "===What's Happening Here?==="));
+    }).catch((err) => console.log(err.response, "===What's Happening Here?==="));
 };
 
 // ADD BLOGS
 export const addBlog = (blog) => dispatch => {
-    axios.post('/api/blog', blog)
+    axios.post('/api/blog/', blog)
     .then(response => {
         console.log('===Get Blog Action===');
         dispatch({

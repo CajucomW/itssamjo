@@ -14,8 +14,8 @@ export default function(state = initialState, action) {
         case DELETE_BLOG:
             return {
                 ...state,
-                blog: state.blog.filter((blog) => 
-                blog.id !== action.payload),
+                blog: state.blog.filter(blog => 
+                blog.id !== action.payload)
             };
         case ADD_BLOG:
             return {

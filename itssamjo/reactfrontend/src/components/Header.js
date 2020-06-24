@@ -6,6 +6,7 @@ export class Header extends Component {
         console.log('=====Header=====');
         return(
             <Fragment>
+                {/* insert bootstrap style here */}
                 <nav>
                     <h1>itssamjo</h1>
                     <NavMenu />

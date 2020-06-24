@@ -21,8 +21,8 @@ export class Blog extends Component {
             <Fragment>
                 <p>Blogs</p>
                 <div>{this.props.blog.map((blog) => (
-                    // <div key={blog.id}>
-                    <div>
+                    // <div >
+                    <div key={blog.id}>
                         <p>{blog.title}</p>
                         <p>{blog.text}</p>
                         <p>{blog.created}</p>
@@ -36,22 +36,13 @@ export class Blog extends Component {
                                 Delete
                             </button>
                         </p>
+                        <hr />
                     </div>
                 ))}
             </div>
             </Fragment>
         );
-        //=========Pre REDUX Code=========
-        // const blogs = this.props.blogs;
-        // return (
-        //     blogs.map(blog => (
-        //         <div>
-        //             <p>{blog.title}</p>
-        //             <p>{blog.text}</p>
-        //             <p>{blog.created}</p>
-        //         </div>
-        //     ))
-        // );
+
     }
 }
 
