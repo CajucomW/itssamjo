@@ -4,6 +4,9 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# 06232020 Attempt to deploy app to heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -14,7 +17,8 @@ SECRET_KEY = '1l=#5h(c07u(pvw#1$670#0$sxr(^$!0bx(z=j_jk@_u2)p+c@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# 06232020 Attemtp to deploy to heroku
+ALLOWED_HOSTS = ['itssamjo.herokuapp.com']
 
 
 # Application definition
@@ -124,3 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 06232020 - Gonna import to hopefully help in deployment
+# import django_heroku
+# django_heroku.settings(locals())

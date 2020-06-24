@@ -28,7 +28,12 @@
   },
   "scripts": {
     "dev": "webpack --mode development --watch ./reactfrontend/src/index.js --output ./reactfrontend/static/frontend/main.js",
-    "build": "webpack --mode production ./reactfrontend/src/index.js --output ./reactfrontend/static/frontend/main.js"
+    "build": "webpack --mode production ./reactfrontend/src/index.js --output ./reactfrontend/static/frontend/main.js",
+    "postinstall": "npm run build"
+  },
+  "engines": {
+    "node": "8.10.0",
+    "npm": "6.11.3"
   },
   "keywords": [],
   "author": "",
