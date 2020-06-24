@@ -4,9 +4,9 @@ Personal blog page in the works.
 
 ### Build
 
--Django Backend
--React as Django App
--REST Framework
+- Django Backend
+- React as Django App
+- REST Framework
 
 ### Progress...
 
