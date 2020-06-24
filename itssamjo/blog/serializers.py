@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import BlogModel
+from blog.models import BlogModel
 
 class BlogModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BlogModel
-        fields = ('pk', 'title', 'text', 'created')
+        fields = '__all__'
