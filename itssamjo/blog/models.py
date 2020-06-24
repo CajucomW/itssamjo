@@ -3,9 +3,10 @@ from django.db import models
 # Need to add models for UN and PW
 
 class BlogModel(models.Model):
-    title = models.CharField("Title", max_length=240)
-    text = models.TextField()
+    title = models.CharField(max_length=240)
+    text = models.TextField(blank=True)
+    # image = models.FileField(upload_to="blogimages/", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
-def __str__(self):
-    return self.title | self.created | self.text
+# def __str__(self):
+#     return self.title + ' said ' + self.text

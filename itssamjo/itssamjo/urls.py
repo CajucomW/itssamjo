@@ -1,10 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from blog import views
-from django.conf.urls import url
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/bloglist', views.blog_list),
-    # path('api/blog/<int:pk>', views.blog_detail),
+    path('', include('reactfrontend.urls')),
+    path('', include('blog.urls')),
 ]
