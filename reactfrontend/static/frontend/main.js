@@ -86,8 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
@@ -1401,17 +1399,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
->>>>>>> 8b96fce67eca41428fd3b60255ed612ec8aae6fb
 /***/ "./reactfrontend/src/index.js":
 /*!************************************!*\
   !*** ./reactfrontend/src/index.js ***!
   \************************************/
 /*! no exports provided */
-<<<<<<< HEAD
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open '/home/cajucomw/Documents/projects/itssamjo/itssamjo/reactfrontend/src/index.js'\");\n\n//# sourceURL=webpack:///./reactfrontend/src/index.js?");
-=======
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1452,7 +1444,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redu
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-devtools-extension */ \"./node_modules/redux-devtools-extension/index.js\");\n/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ \"./node_modules/redux-thunk/es/index.js\");\n/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducers */ \"./reactfrontend/src/reducers/index.js\");\n// SETUP REDUX STORE\n\n\n\n\nvar initialState = {};\nvar middleware = [redux_thunk__WEBPACK_IMPORTED_MODULE_2__[\"default\"]];\nvar store = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducers__WEBPACK_IMPORTED_MODULE_3__[\"default\"], initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__[\"composeWithDevTools\"])(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"].apply(void 0, middleware)));\n/* harmony default export */ __webpack_exports__[\"default\"] = (store);\n\n//# sourceURL=webpack:///./reactfrontend/src/store.js?");
->>>>>>> 8b96fce67eca41428fd3b60255ed612ec8aae6fb
 
 /***/ })
 
