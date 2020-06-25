@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_BLOG, DELETE_BLOG, ADD_BLOG } from './types';
+import { GET_BLOG, DELETE_BLOG, ADD_BLOG, GET_ERRORS } from './types';
 
 // GET BLOGS
 export const getBlog = () => dispatch => {
@@ -22,7 +22,7 @@ export const deleteBlog = (id) => dispatch => {
             type: DELETE_BLOG,
             payload: id,
         });
-    }).catch((err) => console.log(err.response, "===What's Happening Here?==="));
+    }).catch((err) => console.log(err.response));
 };
 
 // ADD BLOGS
@@ -34,5 +34,15 @@ export const addBlog = (blog) => dispatch => {
             type: ADD_BLOG,
             payload: response.data
         });
-    }).catch(err => console.log(err));
+    })
+    .catch(err =>  {
+        const errors = {
+            message: err.response.data,
+            status: err.response.status
+        }
+        dispatch({
+            type: GET_ERRORS,
+            payload: errors
+        });
+    });
 };
