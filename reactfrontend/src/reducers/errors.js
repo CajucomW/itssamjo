@@ -1,4 +1,4 @@
-import { GET_ERRORS, GET_BLOG } from '../actions/types.js';
+import { GET_ERRORS } from '../actions/types.js';
 
 const initialState = {
     message: {},

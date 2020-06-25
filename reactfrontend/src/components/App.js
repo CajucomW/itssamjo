@@ -19,13 +19,13 @@ import store from '../store';
 
 // React Alerts
 const alertOptions = {
-    timeout: 3000,
+    timeout: 5000,
     position: 'top center'
 }
 
 class App extends Component {
     render() {
-        console.log('=====App=====');
+        console.log('===App===');
         return (
             <Provider store={store}>
                 <AlertProvider template={AlertTemplate} {...alertOptions}>
