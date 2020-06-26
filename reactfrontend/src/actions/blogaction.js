@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { createMessage } from './actionmesasge.js';
-import { GET_BLOG, DELETE_BLOG, ADD_BLOG, GET_ERRORS } from './types';
+import { createMessage, returnErrors } from './actionmesasge.js';
+import { GET_BLOG, DELETE_BLOG, ADD_BLOG } from './types';
 
 // GET BLOGS
 export const getBlog = () => dispatch => {
@@ -11,7 +11,13 @@ export const getBlog = () => dispatch => {
             type: GET_BLOG,
             payload: response.data
         });
-    }).catch(err => console.log(err));
+    }).catch(err => 
+        dispatch(
+            returnErrors (
+                err.response.data,
+                err.response.status
+            )
+        ));
 };
 
 // DELETE BLOGS
@@ -42,14 +48,11 @@ export const addBlog = (blog) => dispatch => {
             payload: response.data
         });
     })
-    .catch(err =>  {
-        const errors = {
-            message: err.response.data,
-            status: err.response.status
-        }
-        dispatch({
-            type: GET_ERRORS,
-            payload: errors
-        });
-    });
+    .catch(err => 
+        dispatch(
+            returnErrors (
+                err.response.data,
+                err.response.status
+            )
+        ));
 };
