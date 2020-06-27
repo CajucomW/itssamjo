@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     # 06232020 add Whitenoise
     'whitenoise.runserver_nostatic',
     'corsheaders',
-    'blog.apps.BlogConfig',
+    'blog',
     'rest_framework',
     'reactfrontend',
     'django.contrib.admin',
@@ -39,6 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+
+## The code below DISABLES browseable API when in production
+
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.JSONRenderer',
+#     )
+}
 
 MIDDLEWARE = [
     # 06232020 whitenoise added
@@ -53,18 +63,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'knox.auth.TokenAuthentication',
-#        'rest_framework.authentication.BasicAuthentication'
-        )
-## The code below DISABLES browseable API when in production
-
-#     'DEFAULT_RENDERER_CLASSES': (
-#         'rest_framework.renderers.JSONRenderer',
-#     )
-}
 
 CORS_ORIGIN_ALLOW_ALL = True
 
