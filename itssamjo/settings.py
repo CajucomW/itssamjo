@@ -24,6 +24,7 @@ ALLOWED_HOSTS = ['itssamjo.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'knox',
     # 06232020 add Whitenoise
     'whitenoise.runserver_nostatic',
@@ -39,9 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-REST_FRAMEWORK = {
-}
-
 MIDDLEWARE = [
     # 06232020 whitenoise added
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -56,15 +54,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-## The code below DISABLES browseable API when in production
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'knox.auth.TokenAuthentication',
-        'rest_framework.authentication.BasicAuthentication'
+#        'rest_framework.authentication.BasicAuthentication'
         )
-#    'DEFAULT_AUTHENTICATION_CLASSES': (
-#        'rest_framework.authentication.BasicAuthentication',
-#        )
+## The code below DISABLES browseable API when in production
+
 #     'DEFAULT_RENDERER_CLASSES': (
 #         'rest_framework.renderers.JSONRenderer',
 #     )

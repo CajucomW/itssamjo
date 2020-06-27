@@ -5,4 +5,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('reactfrontend.urls')),
     path('', include('blog.urls')),
+    path('', include('accounts.urls'))
 ]
