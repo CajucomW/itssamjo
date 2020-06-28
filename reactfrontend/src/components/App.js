@@ -20,6 +20,7 @@ import PrivateRoute from './PrivateRoute.js';
 
 import { Provider } from 'react-redux';
 import store from '../store';
+import { loadUser } from '../actions/actionauth.js';
 
 // React Alerts
 const alertOptions = {
@@ -28,6 +29,11 @@ const alertOptions = {
 }
 
 class App extends Component {
+
+    componentDidMount() {
+        store.dispatch(loadUser());
+    }
+
     render() {
         console.log('===App===');
         return (
