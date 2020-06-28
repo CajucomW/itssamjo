@@ -3,7 +3,7 @@ import NavMenu from './NavMenu.js';
 
 export class Header extends Component {
     render() {
-        console.log('=====Header=====');
+        console.log('===Header===');
         return(
             <Fragment>
                 {/* insert bootstrap style here */}

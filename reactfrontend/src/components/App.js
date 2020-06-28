@@ -14,6 +14,8 @@ import Home from './Home.js';
 import Blog from "./Blog.js";
 import WriteBlog from './WriteBlog.js';
 import Alerts from './Alerts.js';
+import Login from './Login.js';
+import Register from './Register.js';
 
 import { Provider } from 'react-redux';
 import store from '../store';
@@ -38,6 +40,8 @@ class App extends Component {
                             <Route exact path='/' component={Home} />
                             <Route exact path='/blog' component={Blog} />
                             <Route exact path='/write-blog' component={WriteBlog} />
+                            <Route exact path='/register' component={Register} />
+                            <Route exact path='/login' component={Login} />
                         </Switch>
                     </div>
                 </Router>

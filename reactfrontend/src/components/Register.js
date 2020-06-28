@@ -10,10 +10,27 @@ export class Register extends Component {
         email: '',
         password: '',
         password2: ''
+    };
+
+    onSubmit = (ev) => {
+        ev.preventDefault();
+        console.log('submit')
     }
 
+    onChange = (ev) =>
+        this.setState({ 
+            [ev.target.name]: ev.target.value
+            });
+
     render() {
-        const { username, email, password, password2 } = this.state;
+        console.log('===Register===');
+        const { 
+            username, 
+            email, 
+            password, 
+            password2 
+            } = this.state;
+            
         return (
             <div>
                 <div>
@@ -83,13 +100,15 @@ export class Register extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    isAuthenticated: state.auth.isAuthenticated,
-});
 
-export default connect(
-    mapStatetoProps, { 
-        register, 
-        createMessage 
-        })
-        (Register);
+export default Register;
+// const mapStateToProps = (state) => ({
+//     isAuthenticated: state.auth.isAuthenticated,
+// });
+
+// export default connect(
+//     mapStatetoProps, { 
+//         register, 
+//         createMessage 
+//         })
+//         (Register);
