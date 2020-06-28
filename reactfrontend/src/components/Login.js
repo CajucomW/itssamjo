@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { login } from '../actions/actionauth.js';
 import { createMessage } from '../actions/actionmesasge.js';
 
 export class Login extends Component {
@@ -11,9 +12,18 @@ export class Login extends Component {
         password2: ''
     };
 
+    static propTypes = {
+        login: PropTypes.func.isRequired,
+        isAuthenticated: PropTypes.bool
+    }
+
     onSubmit = (ev) => {
         ev.preventDefault();
-        console.log('submit')
+        this.props.login(
+            this.state.username,
+            this.state.password
+            ); 
+        console.log('===submit===')
     }
 
     onChange = (ev) =>
@@ -22,11 +32,13 @@ export class Login extends Component {
             });
 
     render() {
+        if(this.props.isAuthenticated) {
+            return <Redirect to='/' />;
+        }
         console.log('===Login===');
         const { 
             username, 
-            password, 
-            password2 
+            password
             } = this.state;
             
         return (
@@ -76,4 +88,8 @@ export class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { login })(Login);
