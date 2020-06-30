@@ -30,7 +30,7 @@ export class Alerts extends Component {
     }
 
     render() {
-        console.log('===Alerts?===');
+        console.log('===Alerts===');
         return <Fragment />;
     }
 }

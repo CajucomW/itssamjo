@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 const PrivateRoute = ({
     component: Component, auth, ...rest }) => (
         <Route {...rest} render={
+            console.log('===PrivateRoute==='),
             props => {
                 if (auth.isLoading) {
                     return <h2>Loading...</h2>

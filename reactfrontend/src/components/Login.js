@@ -3,39 +3,37 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../actions/actionauth.js';
-import { createMessage } from '../actions/actionmesasge.js';
 
 export class Login extends Component {
     state = {
         username: '',
         password: '',
-        password2: ''
     };
 
     static propTypes = {
         login: PropTypes.func.isRequired,
         isAuthenticated: PropTypes.bool
-    }
+    };
 
-    onSubmit = (ev) => {
-        ev.preventDefault();
+    onSubmit = (e) => {
+        e.preventDefault();
         this.props.login(
             this.state.username,
             this.state.password
             ); 
         console.log('===submit===')
-    }
+    };
 
-    onChange = (ev) =>
+    onChange = (e) =>
         this.setState({ 
-            [ev.target.name]: ev.target.value
+            [e.target.name]: e.target.value
             });
 
     render() {
-        if(this.props.isAuthenticated) {
-            return <Redirect to='/' />;
+        if (this.props.isAuthenticated) {
+            return <Redirect to='/' />,
+            console.log('===Login===')
         }
-        console.log('===Login===');
         const { 
             username, 
             password
@@ -88,8 +86,8 @@ export class Login extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps,  { login })(Login);

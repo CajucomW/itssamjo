@@ -8,32 +8,51 @@ import {
     LOGIN_FAIL
 } from './types.js'
 
+// export const tokenConfig = (getState) => {
+//     // GET TOKEN
+//     const token = getState().auth.token;
+//     console.log('===token===', getState().auth.token);
+
+//     // HEADERS
+//     const config = {
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//     };
+
+//     // IF TOKEN, ADD TO HEADERS CONFIG
+//     if (token) {
+//         config.headers['Authorization'] = `Token ${token}`;
+//         console.log('===Config Headers===');
+//     }
+
+//     return config;
+// };
+
 // CHECK TOKEN
 
 export const loadUser = () => (dispatch, getState) => {
     console.log('===LoadUser===');
-    // USER_LOADING
-    dispatch({
-        type: USER_LOADING
-    });
-
-    // GET TOKEN
+//  USER_LOADING
+    dispatch({ type: USER_LOADING });
     const token = getState().auth.token;
 
-    // HEADERS
+//  HEADERS
     const config = {
         headers: {
-            'Content-Type': 'application/json'
-        }
+            "Content-Type": "application/json"
+        },
     };
 
-    // IF TOKEN, ADD TO HEADERS CONFIG
+    console.log('===token===', token);
+
+//  IF TOKEN, ADD TO HEADERS CONFIG
     if (token) {
-        console.log('===Config Headers===');
         config.headers['Authorization'] = `Token ${token}`;
+        console.log('===Config Headers===');
     }
 
-    // LOAD USER
+//  LOAD USER
     axios.get('/api/auth/user', config)
         .then(response => {
             console.log('===Load User API===');
@@ -41,7 +60,8 @@ export const loadUser = () => (dispatch, getState) => {
                 type: USER_LOADED,
                 payload: response.data
             });
-        }).catch(err => {
+        })
+        .catch(err => {
             dispatch(
                 returnErrors(
                     err.response.data, 
@@ -53,31 +73,31 @@ export const loadUser = () => (dispatch, getState) => {
         });
 }
 
-// LOGIN USER
+//  LOGIN USER
 
 export const login = (username, password) => dispatch => {
-    // HEADERS
+
+//  HEADERS
     const config = {
         headers: {
-            "Content-Type": "application/json"
-        }
+            "Content-Type": "application/json",
+        },
     };
 
-    //REQUEST BODY
+//  REQUEST BODY
     const body = JSON.stringify({
-        username,
-        password
+        username, password
     });
 
     axios
     .post('/api/auth/login', body, config)
-    .then(response => {
+    .then((response) => {
         dispatch({
             type: LOGIN_SUCCESS,
-            payload: response.data
+            payload: response.data,
         });
     })
-    .catch(err => {
+    .catch((err) => {
         dispatch(returnErrors(
             err.response.data,
             err.response.status

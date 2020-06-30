@@ -12,12 +12,12 @@ export class Register extends Component {
         password2: ''
     };
 
-    onSubmit = (ev) => {
+    onSubmit = ev => {
         ev.preventDefault();
         console.log('submit')
     }
 
-    onChange = (ev) =>
+    onChange = ev =>
         this.setState({ 
             [ev.target.name]: ev.target.value
             });

@@ -10,7 +10,7 @@ class BlogViewSet(viewsets.ModelViewSet):
     # the following code removes ability to see blogs
     # unless authenticated
     permission_classes = [
-        permissions.IsAuthenticated
+        permissions.IsAuthenticated,
     ]
     serializer_class = BlogModelSerializer
 
@@ -18,5 +18,5 @@ class BlogViewSet(viewsets.ModelViewSet):
         return self.request.user.blog.order_by('-created')
 
     def perform_create(self, serializer):
-        serializer.save(ownder=self.request.user)
+        serializer.save(owner=self.request.user)
     
