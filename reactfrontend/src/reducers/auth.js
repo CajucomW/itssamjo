@@ -7,7 +7,7 @@ import {
 } from '../actions/types.js';
 
 const initialState = {
-    token: localStorage.getItem('token'),
+    token: localStorage.getItem("token"),
     isAuthenticated: null,
     isLoading: false,
     user: null
@@ -17,13 +17,13 @@ export default function(state = initialState, action) {
     console.log('===ReducerAuth===');
     switch (action.type) {
         case USER_LOADING:
-            console.log('===UserLoading===');
+            console.log('===ReducerUserLoading===');
             return {
                 ...state,
                 isLoading: true,
             };
         case USER_LOADED:
-            console.log('===UserLoaded===');
+            console.log('===ReducerUserLoaded===');
             return {
                 ...state,
                 isAuthenticated: true,

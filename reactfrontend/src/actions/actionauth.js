@@ -8,34 +8,14 @@ import {
     LOGIN_FAIL
 } from './types.js'
 
-// export const tokenConfig = (getState) => {
-//     // GET TOKEN
-//     const token = getState().auth.token;
-//     console.log('===token===', getState().auth.token);
-
-//     // HEADERS
-//     const config = {
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//     };
-
-//     // IF TOKEN, ADD TO HEADERS CONFIG
-//     if (token) {
-//         config.headers['Authorization'] = `Token ${token}`;
-//         console.log('===Config Headers===');
-//     }
-
-//     return config;
-// };
-
 // CHECK TOKEN
 
 export const loadUser = () => (dispatch, getState) => {
-    console.log('===LoadUser===');
+    console.log('===ActionLoadUser===');
 //  USER_LOADING
     dispatch({ type: USER_LOADING });
     const token = getState().auth.token;
+//  Right now, token = null. Should it be?
 
 //  HEADERS
     const config = {
@@ -44,38 +24,37 @@ export const loadUser = () => (dispatch, getState) => {
         },
     };
 
-    console.log('===token===', token);
+    console.log('===gets 401 here===');
 
 //  IF TOKEN, ADD TO HEADERS CONFIG
     if (token) {
         config.headers['Authorization'] = `Token ${token}`;
-        console.log('===Config Headers===');
     }
 
 //  LOAD USER
-    axios.get('/api/auth/user', config)
-        .then(response => {
-            console.log('===Load User API===');
-            dispatch({
-                type: USER_LOADED,
-                payload: response.data
+        axios.get('/api/auth/user', config)
+            .then(response => {
+                console.log('===Load User API===');
+                dispatch({
+                    type: USER_LOADED,
+                    payload: response.data
+                });
+            })
+            .catch(err => {
+                dispatch(
+                    returnErrors(
+                        err.response.data, 
+                        err.response.status
+                    ));
+                dispatch({
+                    type: AUTH_ERROR
+                });
             });
-        })
-        .catch(err => {
-            dispatch(
-                returnErrors(
-                    err.response.data, 
-                    err.response.status
-                ));
-            dispatch({
-                type: AUTH_ERROR
-            });
-        });
 }
 
 //  LOGIN USER
 
-export const login = (username, password) => dispatch => {
+export const login = (username, password) => (dispatch) => {
 
 //  HEADERS
     const config = {
@@ -88,6 +67,8 @@ export const login = (username, password) => dispatch => {
     const body = JSON.stringify({
         username, password
     });
+
+    console.log('===body===', body);
 
     axios
     .post('/api/auth/login', body, config)

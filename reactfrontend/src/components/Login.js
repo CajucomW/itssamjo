@@ -16,11 +16,11 @@ export class Login extends Component {
     };
 
     onSubmit = (e) => {
-        e.preventDefault();
         this.props.login(
             this.state.username,
             this.state.password
-            ); 
+            );
+        e.preventDefault();
         console.log('===submit===')
     };
 
@@ -64,6 +64,7 @@ export class Login extends Component {
                             <input
                                 type='password'
                                 name='password'
+                                autoComplete='off'
                                 onChange={this.onChange}
                                 value={password}
                             />
