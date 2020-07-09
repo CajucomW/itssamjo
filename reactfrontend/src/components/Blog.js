@@ -16,7 +16,7 @@ export class Blog extends Component {
     }
 
     render() {
-        console.log('=====Blog=====');
+        console.log('===Blog===');
         return (
             <Fragment>
                 <h1>Blogs</h1>

@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 
 import Header from "./Header.js";
+import NavMenu from "./NavMenu.js";
 import Home from './Home.js';
 import Blog from "./Blog.js";
 import WriteBlog from './WriteBlog.js';
@@ -42,6 +43,8 @@ class App extends Component {
                 <Router>
                     <Fragment>
                         <Header />
+                        <NavMenu />
+                        <hr />
                         <Alerts />
                         <div>
                             <Switch>

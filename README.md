@@ -12,7 +12,8 @@ Personal blog page in the works.
 
 07082020
 - Fixed onSubmit and Login bug (Finally)
-- Need to fix Blog link when logged in to show... blogs.
+- Completed Login and Logout functions
+- Need to fix Blog link when logged in to show... blogs
 
 06282020
 - Fixed migration bug by deleting duplicated titles
