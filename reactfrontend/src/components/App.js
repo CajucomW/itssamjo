@@ -40,17 +40,19 @@ class App extends Component {
             <Provider store={store}>
                 <AlertProvider template={AlertTemplate} {...alertOptions}>
                 <Router>
-                    <Header />
-                    <Alerts />
-                    <div>
-                        <Switch>
-                            <Route exact path='/' component={Home} />
-                            <Route exact path='/blog' component={Blog} />
-                            <PrivateRoute exact path='/write-blog' component={WriteBlog} />
-                            <Route exact path='/register' component={Register} />
-                            <Route exact path='/login' component={Login} />
-                        </Switch>
-                    </div>
+                    <Fragment>
+                        <Header />
+                        <Alerts />
+                        <div>
+                            <Switch>
+                                <Route exact path='/' component={Home} />
+                                <Route exact path='/blog' component={Blog} />
+                                <PrivateRoute exact path='/write-blog' component={WriteBlog} />
+                                <Route exact path='/register' component={Register} />
+                                <Route exact path='/login' component={Login} />
+                            </Switch>
+                        </div>
+                    </Fragment>
                 </Router>
                 </AlertProvider>
             </Provider>
@@ -58,5 +60,5 @@ class App extends Component {
     }
 }
 
-export default App;
+// export default App;
 ReactDOM.render(<App />, document.getElementById('app'));

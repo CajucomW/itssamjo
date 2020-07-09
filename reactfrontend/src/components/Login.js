@@ -16,11 +16,11 @@ export class Login extends Component {
     };
 
     onSubmit = (ev) => {
+        ev.preventDefault();
         this.props.login(
             this.state.username,
             this.state.password
             );
-        ev.preventDefault();
         console.log('===submit===')
     };
 
@@ -30,9 +30,9 @@ export class Login extends Component {
             });
 
     render() {
+        console.log('===LoginPage===');
         if (this.props.isAuthenticated) {
-            return <Redirect to='/' />,
-            console.log('===Login===')
+            return <Redirect to='/' />;
         }
         const { 
             username, 
@@ -45,7 +45,7 @@ export class Login extends Component {
                     <h2>
                         Login
                     </h2>
-                    <form onSubmit={this.Submit}>
+                    <form onSubmit={this.onSubmit}>
                         <div>
                             <label>
                                 Username
