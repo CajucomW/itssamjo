@@ -24,7 +24,7 @@ export const loadUser = () => (dispatch, getState) => {
         },
     };
 
-    console.log('===gets 401 here===');
+    console.log('===gets 401 here===', "token is: ", token);
 
 //  IF TOKEN, ADD TO HEADERS CONFIG
     if (token) {
@@ -32,24 +32,24 @@ export const loadUser = () => (dispatch, getState) => {
     }
 
 //  LOAD USER
-        axios.get('/api/auth/user', config)
-            .then(response => {
-                console.log('===Load User API===');
-                dispatch({
-                    type: USER_LOADED,
-                    payload: response.data
-                });
-            })
-            .catch(err => {
-                dispatch(
-                    returnErrors(
-                        err.response.data, 
-                        err.response.status
-                    ));
-                dispatch({
-                    type: AUTH_ERROR
-                });
+    axios.get('/api/auth/user', config)
+        .then(response => {
+            console.log('===Load User API===');
+            dispatch({
+                type: USER_LOADED,
+                payload: response.data
             });
+        })
+        .catch(err => {
+            dispatch(
+                returnErrors(
+                    err.response.data, 
+                    err.response.status
+                ));
+            dispatch({
+                type: AUTH_ERROR
+            });
+        });
 }
 
 //  LOGIN USER
@@ -65,26 +65,27 @@ export const login = (username, password) => (dispatch) => {
 
 //  REQUEST BODY
     const body = JSON.stringify({
-        username, password
+        username: username,
+        password: password
     });
 
     console.log('===body===', body);
 
     axios
-    .post('/api/auth/login', body, config)
-    .then((response) => {
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: response.data,
+        .post('/api/auth/login', body, config)
+        .then((response) => {
+            dispatch({
+                type: LOGIN_SUCCESS,
+                payload: response.data,
+            });
+        })
+        .catch((err) => {
+            dispatch(returnErrors(
+                err.response.data,
+                err.response.status
+            ));
+            dispatch({
+                type: LOGIN_FAIL
+            });
         });
-    })
-    .catch((err) => {
-        dispatch(returnErrors(
-            err.response.data,
-            err.response.status
-        ));
-        dispatch({
-            type: LOGIN_FAIL
-        });
-    });
 }
