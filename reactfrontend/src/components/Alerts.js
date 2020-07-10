@@ -15,9 +15,16 @@ export class Alerts extends Component {
             if (error.message.title) 
             // the code below system error message
             // use 'join' to turn array into string
-            alert.error(
-                `Title: ${error.message.title.join()}`
-            );
+                alert.error(
+                    `Title: ${error.message.title.join()}`
+                );
+                
+            // the code below will show errors for
+            // 'Incorrect Credentials' during login
+            if (error.message.non_field_errors)
+                alert.error(
+                    error.message.non_field_errors.join()
+                );
         }
         // CRUD Alerts/pop-ups
         if (message !== prevProps.message) {

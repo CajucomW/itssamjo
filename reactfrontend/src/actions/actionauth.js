@@ -9,31 +9,12 @@ import {
     LOGOUT
 } from './types.js'
 
-// CHECK TOKEN
-
 export const loadUser = () => (dispatch, getState) => {
     console.log('===ActionLoadUser===');
-//  USER_LOADING
     dispatch({ type: USER_LOADING });
-    const token = getState().auth.token;
-//  Right now, token = null. Should it be?
-
-//  HEADERS
-    const config = {
-        headers: {
-            "Content-Type": "application/json"
-        },
-    };
-
-    console.log('===gets 401 here===', "token is: ", token);
-
-//  IF TOKEN, ADD TO HEADERS CONFIG
-    if (token) {
-        config.headers['Authorization'] = `Token ${token}`;
-    }
 
 //  LOAD USER
-    axios.get('/api/auth/user', config)
+    axios.get('/api/auth/user', tokenConfig(getState))
         .then(response => {
             console.log('===Load User API===');
             dispatch({
@@ -94,19 +75,8 @@ export const login = (username, password) => (dispatch) => {
 // LOGOUT
 
 export const logout = () => (dispatch, getState) => {
-    const token = getState().auth.token;
-    const config = {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    };
-
-    if (token) {
-        config.headers["Authorization"] = `Token ${token}`;
-    }
-
     axios
-        .post("/api/auth/logout/", null, config)
+        .post("/api/auth/logout/", null, tokenConfig(getState))
         .then (response => {
             dispatch({
                 type: LOGOUT,
@@ -118,4 +88,22 @@ export const logout = () => (dispatch, getState) => {
                 err.response.status
             ));
         });
+};
+
+//  Create constant to DRY up code:
+export const tokenConfig = getState => {
+//  Get token:
+    const token = getState().auth.token;
+//  Set Headers:
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+//  Add token to headers configuration:
+    if (token) {
+        config.headers["Authorization"] = `Token ${token}`;
+    }
+
+    return config;
 }

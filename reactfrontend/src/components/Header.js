@@ -3,6 +3,8 @@ import React, { Component } from "react";
 export class Header extends Component {
     render() {
         console.log('===Header===');
+        const user = this.props.auth;
+        console.log("user?", user);
         return(
             <div>
                 {/* insert bootstrap style here */}
@@ -13,5 +15,4 @@ export class Header extends Component {
         );
     }
 }
-
 export default Header;
