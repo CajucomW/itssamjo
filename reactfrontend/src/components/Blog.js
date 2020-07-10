@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getBlog, deleteBlog, addBlog } from '../actions/blogaction.js';
+import { getBlog, deleteBlog } from '../actions/blogaction.js';
 
 
 export class Blog extends Component {
@@ -32,7 +32,6 @@ export class Blog extends Component {
                                 onClick={this.props.deleteBlog.bind
                                 (this, blog.id)}
                             >
-                                {" "}
                                 Delete
                             </button>
                         </p>

@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { createMessage, returnErrors } from './actionmesasge.js';
 import { GET_BLOG, DELETE_BLOG, ADD_BLOG } from './types';
+import { tokenConfig } from './actionauth.js';
 
 // GET BLOGS
-export const getBlog = () => dispatch => {
-    axios.get('/api/blog/')
+export const getBlog = () => (dispatch, getState) => {
+    axios.get('/api/blog/', tokenConfig(getState))
     .then(response => {
         console.log('===Get Blog Action===');
         dispatch({
@@ -21,8 +22,8 @@ export const getBlog = () => dispatch => {
 };
 
 // DELETE BLOGS
-export const deleteBlog = (id) => dispatch => {
-    axios.delete(`/api/blog/${id}/`)
+export const deleteBlog = (id) => (dispatch, getState) => {
+    axios.delete(`/api/blog/${id}/`, tokenConfig(getState))
     .then((response) => {
         console.log('===Delete Blog Action===');
         dispatch(createMessage({ 
@@ -36,10 +37,10 @@ export const deleteBlog = (id) => dispatch => {
 };
 
 // ADD BLOGS
-export const addBlog = (blog) => dispatch => {
-    axios.post('/api/blog/', blog)
+export const addBlog = (blog) => (dispatch, getState) => {
+    axios.post('/api/blog/', blog, tokenConfig(getState))
     .then(response => {
-        console.log('===Get Blog Action===');
+        console.log('===Add Blog Action===');
         dispatch(createMessage({ 
             blogAdded: 'Blog Added' 
         }));
