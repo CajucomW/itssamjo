@@ -1,4 +1,5 @@
 import React , { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addBlog } from '../actions/blogaction.js';
@@ -35,6 +36,7 @@ export class WriteBlog extends Component {
     render() {
         console.log('===Write Blog===');
         const { title, text } = this.state;
+
         return (
             <div>
                 <h1>Add Blog</h1>

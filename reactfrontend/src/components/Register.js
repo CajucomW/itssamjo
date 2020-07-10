@@ -94,6 +94,7 @@ export class Register extends Component {
                             <input
                                 type='password'
                                 name='password'
+                                autoComplete='off'
                                 onChange={this.onChange}
                                 value={password}
                             />
@@ -105,6 +106,7 @@ export class Register extends Component {
                             <input
                                 type='password'
                                 name='password2'
+                                autoComplete='off'
                                 onChange={this.onChange}
                                 value={password2}
                             />

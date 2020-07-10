@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 export class Header extends Component {
+    static propTypes = {
+        auth: PropTypes.object.isRequired,
+    }
     render() {
         console.log('===Header===');
         const user = this.props.auth;
-        console.log("user?", user);
         return(
             <div>
                 {/* insert bootstrap style here */}
@@ -15,4 +19,5 @@ export class Header extends Component {
         );
     }
 }
+
 export default Header;
