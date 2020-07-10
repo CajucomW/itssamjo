@@ -26,9 +26,6 @@ ALLOWED_HOSTS = ['itssamjo.herokuapp.com', 'localhost']
 INSTALLED_APPS = [
     'accounts',
     'knox',
-    # 06232020 add Whitenoise
-    'whitenoise.runserver_nostatic',
-    'corsheaders',
     'blog',
     'rest_framework',
     'reactfrontend',
@@ -52,10 +49,6 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
-    # 06232020 whitenoise added
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,8 +57,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'itssamjo.urls'
 
@@ -136,7 +127,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# 06232020 - Gonna import to hopefully help in deployment
-# import django_heroku
-# django_heroku.settings(locals())
