@@ -6,7 +6,9 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT
+    LOGOUT,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL
 } from './types.js'
 
 export const loadUser = () => (dispatch, getState) => {
@@ -72,7 +74,45 @@ export const login = (username, password) => (dispatch) => {
         });
 }
 
-// LOGOUT
+//  REGISTER
+
+export const register = ({
+    username,
+    password,
+    email
+}) => dispatch => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+
+    const body = JSON.stringify({
+        username,
+        password,
+        email
+    });
+
+    axios
+        .post("/api/auth/register", body, config)
+        .then(response => {
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: response.data
+            });
+        })
+        .catch(err => {
+            dispatch(returnErrors(
+                err.response.data,
+                err.response.status
+            ));
+            dispatch({
+                type: REGISTER_FAIL
+            });
+        })
+}
+
+//  LOGOUT
 
 export const logout = () => (dispatch, getState) => {
     axios

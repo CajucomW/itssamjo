@@ -13,26 +13,26 @@ export class Alerts extends Component {
         const { error, alert, message } = this.props;
         if (error !== prevProps.error) {
             if (error.message.title) 
-            // the code below system error message
-            // use 'join' to turn array into string
-                alert.error(
-                    `Title: ${error.message.title.join()}`
-                );
-                
-            // the code below will show errors for
-            // 'Incorrect Credentials' during login
+//              the code below system error message
+//              use 'join' to turn array into string
+                alert.error(`Title: ${error.message.title.join()}`);
+
+//          the code below will show errors for
+//          'Incorrect Credentials' during login
             if (error.message.non_field_errors)
-                alert.error(
-                    error.message.non_field_errors.join()
-                );
+                alert.error(error.message.non_field_errors.join());
+            if (error.message.username)
+                alert.error(error.message.username.join());
         }
-        // CRUD Alerts/pop-ups
+//      CRUD Alerts/pop-ups
         if (message !== prevProps.message) {
-            // 'blogAdded' is from blogaction.js
+//          'blogAdded' is from blogaction.js
             if (message.blogAdded) 
-            alert.success(message.blogAdded);
+                alert.success(message.blogAdded);
             if (message.blogDeleted) 
-            alert.success(message.blogDeleted);
+                alert.success(message.blogDeleted);
+            if (message.passwordNotMatch)
+                alert.error (message.passwordNotMatch);
         }
     }
 
