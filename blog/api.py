@@ -3,9 +3,20 @@ from rest_framework import viewsets, permissions
 from .serializers import BlogModelSerializer
 
 # BlogModel Viewset
+
 class BlogViewSet(viewsets.ModelViewSet):
-    queryset = BlogModel.objects.order_by('-created')
+    # remove for authentication:
+    # queryset = BlogModel.objects.order_by('-created')
+    # the following code removes ability to see blogs
+    # unless authenticated
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated,
     ]
     serializer_class = BlogModelSerializer
+
+    def get_queryset(self):
+        return self.request.user.blog.order_by('-created')
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+    

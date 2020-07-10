@@ -1,13 +1,13 @@
 // import React from 'react';
 // import ReactDOM from 'react-dom';
-// import { BrowserRouter } from 'react-router-dom';
+// import { HashRouter as Router } from 'react-router-dom';
 // import * as serviceWorker from './serviceWorker';
 import App from './components/App.js';
 
 // ReactDOM.render(
 //     (
-//     <BrowserRouter>
+//     <Router>
 //         <App />
-//     </BrowserRouter>
+//     </Router>
 // ), document.getElementById('root'));
 // serviceWorker.unregister();

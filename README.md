@@ -6,23 +6,28 @@ Personal blog page in the works.
 
 - Django Backend
 - React as Django App
+- REDUX to manage State
 - REST Framework
 
 ### Progress...
 
-06242020
-- (Finally) Ready to tackle authentication. Still having a hell of a time deploying to Heroku. I was messing w/ gunicorn stuff, which was all way over my head.
+07092020
+- Blogs show when logged in
+- Guide I used had a  Register functionality that I'm not sure I'll keep
 
-06232020
-- That took a While. I restructured the code to have 
-the Django Project have a React App for it's frontend.
-After a ton of trial and error, I was able to connect 
-the two ends along w/ basic C.R.D. operations.
+07082020
+- Fixed onSubmit and Login bug (Finally)
+- Completed Login and Logout functions
+- Need to fix Blog link when logged in to show... blogs
 
+06282020
+- Fixed migration bug by deleting duplicated titles
+- Moving on to Login/Authentication using tokens
 
 ### TODO:
 
-- Login/Authentication
-- Make Heroku-ready > deploy to heroku
+- Display All Blog entries
+- Fix Delete Function
 - Styling
+- Make Heroku-ready > deploy to heroku
 - Write Update operation

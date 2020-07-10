@@ -1,19 +1,18 @@
-import React, { Component, Fragment } from "react";
-import NavMenu from './NavMenu.js';
+import React, { Component } from "react";
 
 export class Header extends Component {
     render() {
-        console.log('=====Header=====');
+        console.log('===Header===');
+        const user = this.props.auth;
+        console.log("user?", user);
         return(
-            <Fragment>
+            <div>
                 {/* insert bootstrap style here */}
-                <nav>
+                <div>
                     <h1>itssamjo</h1>
-                    <NavMenu />
-                </nav>
-            </Fragment>
+                </div>
+            </div>
         );
     }
 }
-
 export default Header;
