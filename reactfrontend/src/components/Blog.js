@@ -21,7 +21,6 @@ export class Blog extends Component {
             <Fragment>
                 <h1>Blogs</h1>
                 <div>{this.props.blog.map((blog) => (
-                    // <div >
                     <div key={blog.id}>
                         <p>{blog.title}</p>
                         <p>{blog.text}</p>

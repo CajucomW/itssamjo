@@ -1,6 +1,8 @@
 ## itssamjo
 
 Personal blog page in the works.
+I'm following <a href="https://youtu.be/Fia-GGgHpK0" target="_blank">Traversy Media</a>'s
+videos as reference to make a simple blog app.
 
 ### Build
 
@@ -11,6 +13,11 @@ Personal blog page in the works.
 
 ### Progress...
 
+07122020
+- Implemented basic Bootstrap styling
+- Reviewing code to see where I can repurpose the app so that all blog
+entries are visible
+
 07092020
 - Blogs show when logged in
 - Guide I used had a  Register functionality that I'm not sure I'll keep
@@ -19,10 +26,6 @@ Personal blog page in the works.
 - Fixed onSubmit and Login bug (Finally)
 - Completed Login and Logout functions
 - Need to fix Blog link when logged in to show... blogs
-
-06282020
-- Fixed migration bug by deleting duplicated titles
-- Moving on to Login/Authentication using tokens
 
 ### TODO:
 
