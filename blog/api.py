@@ -5,11 +5,8 @@ from .serializers import BlogModelSerializer
 # BlogModel Viewset
 
 class BlogViewSet(viewsets.ModelViewSet):
-#   remove for authentication:
-#   queryset = BlogModel.objects.order_by('-created')
 #   the following code removes ability to see blogs
 #   unless authenticated
-    
     permission_classes = [
         permissions.IsAuthenticated,
     ]
@@ -18,6 +15,9 @@ class BlogViewSet(viewsets.ModelViewSet):
 #   This returns blogs to the authenticated user
     def get_queryset(self):
         return self.request.user.blog.order_by('-created')
+
+#   code below allows all to see the code?:
+#   queryset = BlogModel.objects.order_by('-created')
 
 #   This allows new users to be saved
 #   I may have to take this out since I only want One User for now
