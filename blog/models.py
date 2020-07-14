@@ -8,6 +8,12 @@ class BlogModel(models.Model):
     text = models.TextField(blank=True)
 #   on_delete=models.CASCADE deletes all the user's
 #   posts when acct is deleted
+
+#   the 'owner' field in BlogModel limits the blog to a 
+#   specific user. disadvantage is that ONLY that user
+#   can see the blog post. I want to fix this so that
+#   ANYONE can see the blog post, but only the USER can
+#   create a blog post.
     owner = models.ForeignKey(
         User, 
         related_name='blog', 

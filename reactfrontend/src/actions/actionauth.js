@@ -8,7 +8,8 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    GET_BLOG
 } from './types.js'
 
 export const loadUser = () => (dispatch, getState) => {
@@ -19,6 +20,10 @@ export const loadUser = () => (dispatch, getState) => {
     axios.get('/api/auth/user', tokenConfig(getState))
         .then(response => {
             console.log('===Load User API===');
+//            dispatch({
+//                type: GET_BLOG,
+//                payload: response.data
+//            });
             dispatch({
                 type: USER_LOADED,
                 payload: response.data
