@@ -13,6 +13,9 @@ videos as reference to make a simple blog app.
 
 ### Progress...
 
+07132020
+- Edited code to allow blog posts to Read w/o authorization
+
 07122020
 - Implemented basic Bootstrap styling
 - Reviewing code to see where I can repurpose the app so that all blog
@@ -22,15 +25,10 @@ entries are visible
 - Blogs show when logged in
 - Guide I used had a  Register functionality that I'm not sure I'll keep
 
-07082020
-- Fixed onSubmit and Login bug (Finally)
-- Completed Login and Logout functions
-- Need to fix Blog link when logged in to show... blogs
-
 ### TODO:
 
-- Display All Blog entries
-- Fix Delete Function
+- Delete to show only when logged in
+- Fix Delete function
 - Styling
 - Make Heroku-ready > deploy to heroku
 - Write Update operation
