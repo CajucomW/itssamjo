@@ -24,7 +24,3 @@ class BlogViewSet(viewsets.ModelViewSet):
 #   I may have to take this out since I only want One User for now
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-    
-
-# Edit so the only restriction when logged out is Creating blogs
-# When logged out, I need to be able to see all blog posts.

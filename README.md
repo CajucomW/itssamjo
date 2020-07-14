@@ -15,6 +15,7 @@ videos as reference to make a simple blog app.
 
 07132020
 - Edited code to allow blog posts to Read w/o authorization
+- Fixed Deleted buttons to only show when logged in
 
 07122020
 - Implemented basic Bootstrap styling
@@ -27,8 +28,7 @@ entries are visible
 
 ### TODO:
 
-- Delete to show only when logged in
-- Fix Delete function
+- Fix Delete button/function
 - Styling
 - Make Heroku-ready > deploy to heroku
 - Write Update operation
