@@ -19,6 +19,7 @@ export class Blog extends Component {
     render() {
         console.log('===Blog===');
         const { isAuthenticated } = this.props.auth;
+        
         const authBlogView = (
             <Fragment>
                 <h1>Blogs</h1>

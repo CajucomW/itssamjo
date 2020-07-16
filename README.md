@@ -29,6 +29,7 @@ entries are visible
 ### TODO:
 
 - Fix Delete button/function
+- Redirect to Blog page after writing one up
 - Styling
 - Make Heroku-ready > deploy to heroku
 - Write Update operation
