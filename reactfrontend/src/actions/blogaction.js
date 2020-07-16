@@ -23,7 +23,9 @@ export const getBlog = () => (dispatch, getState) => {
 
 // DELETE BLOGS
 export const deleteBlog = (id) => (dispatch, getState) => {
-    axios.delete(`/api/blog/${id}/`, tokenConfig(getState))
+    console.log("===id===", id);
+    axios
+    .delete(`/api/blog/${id}/`, tokenConfig(getState))
     .then((response) => {
         console.log('===Delete Blog Action===');
         dispatch(createMessage({ 
@@ -31,9 +33,10 @@ export const deleteBlog = (id) => (dispatch, getState) => {
         }));
         dispatch({
             type: DELETE_BLOG,
-            payload: id,
+            payload: response.id,
         });
-    }).catch((err) => console.log(err.response));
+    })
+    .catch((err) => console.log(err.response));
 };
 
 // ADD BLOGS

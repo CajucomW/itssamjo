@@ -10,10 +10,7 @@ class BlogModel(models.Model):
 #   posts when acct is deleted
 
 #   the 'owner' field in BlogModel limits the blog to a 
-#   specific user. disadvantage is that ONLY that user
-#   can see the blog post. I want to fix this so that
-#   ANYONE can see the blog post, but only the USER can
-#   create a blog post.
+#   specific user.
     owner = models.ForeignKey(
         User, 
         related_name='blog', 
