@@ -6,7 +6,7 @@ export class Home extends Component {
     render() {
         console.log("=====Home=====");
         return (
-            <div>
+            <div className='container'>
                 <h1>Homepage</h1>
                 <p>
                     She doesn't know I'm writing

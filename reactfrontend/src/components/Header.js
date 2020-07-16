@@ -11,10 +11,10 @@ export class Header extends Component {
         console.log('===Header===');
         const user = this.props.auth;
         return(
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
                 {/* insert bootstrap style here */}
                 <h1 className="navbar-brand" href="#">itssamjo</h1>
-                <button 
+                {/* <button 
                 className="navbar-toggler" 
                 type="button" 
                 data-toggle="collapse" 
@@ -24,7 +24,7 @@ export class Header extends Component {
                 aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon">
                     </span>
-                </button>
+                </button> */}
                 <NavMenu />
             </nav>
         );

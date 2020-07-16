@@ -22,40 +22,44 @@ export class Blog extends Component {
         
         const authBlogView = (
             <Fragment>
-                <h1>Blogs</h1>
-                <div>{this.props.blog.map((blog) => (
-                    <div key={blog.id}>
-                        <p>{blog.title}</p>
-                        <p>{blog.text}</p>
-                        <p>{blog.created}</p>
-                        <p>{blog.id}</p>
-                        <p>
-                            <button
-                                onClick={this.props.deleteBlog.bind
-                                (this, blog.id)}
-                            >
-                                Delete
-                            </button>
-                        </p>
-                        <hr />
+                <div className='container'>
+                    <h1>Blogs</h1>
+                    <div>{this.props.blog.map((blog) => (
+                        <div key={blog.id}>
+                            <p>{blog.title}</p>
+                            <p>{blog.text}</p>
+                            <p>{blog.created}</p>
+                            <p>{blog.id}</p>
+                            <p>
+                                <button
+                                    onClick={this.props.deleteBlog.bind
+                                    (this, blog.id)}
+                                >
+                                    Delete
+                                </button>
+                            </p>
+                            <hr />
+                        </div>
+                    ))}
                     </div>
-                ))}
                 </div>
             </Fragment>
         );
 
         const guestBlogView = (
             <Fragment>
-                <h1>Blogs</h1>
-                <div>{this.props.blog.map((blog) => (
-                    <div key={blog.id}>
-                        <p>{blog.title}</p>
-                        <p>{blog.text}</p>
-                        <p>{blog.created}</p>
-                        <p>{blog.id}</p>
-                        <hr />
+                <div className='container'>
+                    <h1>Blogs</h1>
+                    <div>{this.props.blog.map((blog) => (
+                        <div key={blog.id}>
+                            <p>{blog.title}</p>
+                            <p>{blog.text}</p>
+                            <p>{blog.created}</p>
+                            <p>{blog.id}</p>
+                            <hr />
+                        </div>
+                    ))}
                     </div>
-                ))}
                 </div>
             </Fragment>
         );

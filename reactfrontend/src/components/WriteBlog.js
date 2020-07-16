@@ -70,7 +70,7 @@ export class WriteBlog extends Component {
                     </div>
                     <button 
                         type="submit"
-                        className='btn btn-primary'>
+                        className='btn btn-success btn-rounded'>
                             Post!
                     </button>
                 </form>

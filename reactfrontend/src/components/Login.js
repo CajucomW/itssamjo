@@ -77,7 +77,7 @@ export class Login extends Component {
                         </div>
                         <button 
                             type='submit'
-                            className='btn btn-primary'>
+                            className='btn btn-light-green btn-rounded'>
                             Login
                         </button>
                         <small

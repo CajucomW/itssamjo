@@ -18,7 +18,7 @@ export class NavMenu extends Component {
                 <Link className="nav-item nav-link active" to='/'>Home<span className="sr-only">(current)</span></Link>
                 <Link className="nav-item nav-link" to='/blog'>Blog</Link>
                 <Link className="nav-item nav-link" to='/write-blog'>Write</Link>
-                <button onClick={this.props.logout}>Logout</button>
+                <button onClick={this.props.logout} className='btn btn-link'>Logout</button>
             </div>
             // <ul>
             //     <li><Link to='/'>Home</Link></li>
