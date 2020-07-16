@@ -38,33 +38,41 @@ export class WriteBlog extends Component {
         const { title, text } = this.state;
 
         return (
-            <div>
+            <div className='container'>
                 <h1>Add Blog</h1>
                 <form onSubmit={this.onSubmit}>
-                    <div>
-                        <label>Title</label>
+                    <div className='form-group'>
+                        <label for='title'>Title</label>
                         <input
                             type="text"
                             onChange={this.onChange}
                             name="title"
                             value={title}
                             placeholder="Enter Title Here"
+                            className='form-control'
+                            id='title'
+                            aria-describedby='title'
                             />
                     </div>
                     <br />
-                    <div>
-                        <label>Text</label>
+                    <div className='form-group'>
+                        <label for='text'>Text</label>
                         <textarea
                             type="textarea"
                             onChange={this.onChange}
                             name="text"
                             value={text}
                             placeholder="Enter Text Here"
+                            className='form-control'
+                            id='text'
+                            aria-describedby='text'
                             />
                     </div>
-                    <div>
-                        <button type="submit">Post!</button>
-                    </div>
+                    <button 
+                        type="submit"
+                        className='btn btn-primary'>
+                            Post!
+                    </button>
                 </form>
             </div>
         );

@@ -60,24 +60,27 @@ export class Register extends Component {
             
         return (
             <div>
-                <div>
+                <div className='container'>
                     <h2>
                         Register
                     </h2>
                     <form onSubmit={this.onSubmit}>
-                        <div>
-                            <label>
+                        <div className='form-group'>
+                            <label for='username'>
                                 Username
                             </label>
                             <input
                                 type='text'
-                                name='username'
+                                name='register-username'
                                 onChange={this.onChange}
                                 value={username} 
+                                className='form-control'
+                                id='register-user'
+                                aria-describedby='register-user'
                             />
                         </div>
-                        <div>
-                            <label>
+                        <div className='form-group'>
+                            <label for='email'>
                                 Email
                             </label>
                             <input
@@ -85,10 +88,13 @@ export class Register extends Component {
                                 name='email'
                                 onChange={this.onChange}
                                 value={email}
+                                className='form-control'
+                                id='email'
+                                aria-describedby='email'
                             />
                         </div>
-                        <div>
-                            <label>
+                        <div className='form-group'>
+                            <label for='register-password'>
                                 Password
                             </label>
                             <input
@@ -97,10 +103,13 @@ export class Register extends Component {
                                 autoComplete='off'
                                 onChange={this.onChange}
                                 value={password}
+                                className='form-control'
+                                id='register-password'
+                                aria-describedby='register-password'
                             />
                         </div>
-                        <div>
-                            <label>
+                        <div className='form-group'>
+                            <label for='confirm'>
                                 Confirm Password
                             </label>
                             <input
@@ -109,19 +118,26 @@ export class Register extends Component {
                                 autoComplete='off'
                                 onChange={this.onChange}
                                 value={password2}
+                                className='form-control'
+                                id='confirm'
+                                aria-describedby='confirm'
                             />
                         </div>
-                        <div>
-                            <button type='submit'>
-                                Register
-                            </button>
-                        </div>
-                        <p>
+                        <button 
+                            type='submit'
+                            className='btn btn-primary'>
+                            Register
+                        </button>
+                        <small
+                            id='login'
+                            className='form-text text-muted'>
                             Already have an account?
-                            <Link to='/login'>
+                            <Link 
+                                to='/login'
+                                className='nav-link'>
                                 Login
                             </Link>
-                        </p>
+                        </small>
                     </form>
                 </div>
             </div>

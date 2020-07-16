@@ -41,45 +41,55 @@ export class Login extends Component {
             
         return (
             <div>
-                <div>
+                <div className='container'>
                     <h2>
                         Login
                     </h2>
                     <form onSubmit={this.onSubmit}>
-                        <div>
-                            <label>
+                        <div className='form-group'>
+                            <label for='username'>
                                 Username
                             </label>
                             <input
                                 type='text'
+                                className='form-control'
+                                id='username'
+                                aria-describedby='username'
                                 name='username'
                                 onChange={this.onChange}
                                 value={username} 
                             />
                         </div>
-                        <div>
-                            <label>
+                        <div className='form-group'>
+                            <label for='password'>
                                 Password
                             </label>
                             <input
                                 type='password'
+                                className='form-control'
+                                id='password'
+                                aria-describedby='password'
                                 name='password'
                                 autoComplete='off'
                                 onChange={this.onChange}
                                 value={password}
                             />
                         </div>
-                        <div>
-                            <button type='submit'>
-                                Login
-                            </button>
-                        </div>
-                        <p>
+                        <button 
+                            type='submit'
+                            className='btn btn-primary'>
+                            Login
+                        </button>
+                        <small
+                            id='register'
+                            className='form-text text-muted'>
                             Don't have an account?
-                            <Link to='/register'>
+                            <Link 
+                                to='/register'
+                                className='nav-link'>
                                 Register
                             </Link>
-                        </p>
+                        </small>
                     </form>
                 </div>
             </div>

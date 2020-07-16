@@ -43,7 +43,7 @@ class App extends Component {
                 <Router>
                     <Fragment>
                         <Header />
-                        <NavMenu />
+                        {/* <NavMenu /> */}
                         <hr />
                         <Alerts />
                         <div>

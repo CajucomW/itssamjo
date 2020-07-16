@@ -33,10 +33,17 @@ export const deleteBlog = (id) => (dispatch, getState) => {
         }));
         dispatch({
             type: DELETE_BLOG,
-            payload: response.id,
+            payload: id,
         });
     })
-    .catch((err) => console.log(err.response));
+//  .catch((err) => console.log(err.response));
+    .catch(err =>
+        dispatch(
+            returnErrors(
+                err.response.data,
+                err.response.status
+            )
+        ));
 };
 
 // ADD BLOGS
