@@ -13,6 +13,11 @@ videos as reference to make a simple blog app.
 
 ### Progress...
 
+07162020
+- Main function of creating and reading in blogs complete
+- Basic-level authentication complete
+- Initiated styling concepts. Will complete w/ user
+
 07132020
 - Edited code to allow blog posts to Read w/o authorization
 - Fixed Deleted buttons to only show when logged in
@@ -22,14 +27,11 @@ videos as reference to make a simple blog app.
 - Reviewing code to see where I can repurpose the app so that all blog
 entries are visible
 
-07092020
-- Blogs show when logged in
-- Guide I used had a  Register functionality that I'm not sure I'll keep
 
 ### TODO:
 
+- Deploy to server
 - Fix Delete button/function
 - Redirect to Blog page after writing one up
-- Styling
-- Make Heroku-ready > deploy to heroku
 - Write Update operation
+- Styling
