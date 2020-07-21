@@ -7,13 +7,9 @@ verify_ssl = true
 pylint = "*"
 
 [packages]
-django-cors-headers = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
 Django = "*"
-whitenoise = "*"
-gunicorn = "*"
-requirements-txt = "*"
 
 [requires]
 python_version = "3.6"
