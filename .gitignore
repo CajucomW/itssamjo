@@ -5,11 +5,33 @@
 /.pnp
 .pnp.js
 
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
 # testing
 /coverage
 
 # production
 /build
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # misc
 .DS_Store

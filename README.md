@@ -13,6 +13,9 @@ videos as reference to make a simple blog app.
 
 ### Progress...
 
+07202020
+- Moving on to deployment
+
 07162020
 - Main function of creating and reading in blogs complete
 - Basic-level authentication complete
@@ -21,12 +24,6 @@ videos as reference to make a simple blog app.
 07132020
 - Edited code to allow blog posts to Read w/o authorization
 - Fixed Deleted buttons to only show when logged in
-
-07122020
-- Implemented basic Bootstrap styling
-- Reviewing code to see where I can repurpose the app so that all blog
-entries are visible
-
 
 ### TODO:
 
