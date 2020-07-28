@@ -1,2 +1,4 @@
-django>=2.1.2
-gunicorn==19.7.1
+django_rest_knox==4.1.0
+Django==3.0.8
+djangorestframework==3.11.0
+knox==0.1.0
