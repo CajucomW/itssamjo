@@ -11,6 +11,7 @@ djangorestframework = "*"
 django-rest-knox = "*"
 Django = "*"
 pipreqs = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"
